@@ -1,0 +1,104 @@
+{% extends "_layouts/master.html" %}
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{{STATIC_URL}}js/dropzone/dropzone.css">
+{% endblock %}
+
+{% block page_title  %}Asset {% endblock page_title%}
+{% block content %}
+
+<div class="well">
+    Manage your assets or get information about the market
+</div>
+
+<ul class="nav nav-tabs bordered"><!-- available classes "bordered", "right-aligned" -->
+    <li class="active">
+        <a href="#realtime-asset" data-toggle="tab">
+            <span class="visible-xs"><i class="entypo-home"></i></span>
+            <span class="hidden-xs">Real time data</span>
+        </a>
+    </li>
+    <li>
+        <a href="#historical-asset" data-toggle="tab">
+            <span class="visible-xs"><i class="entypo-user"></i></span>
+            <span class="hidden-xs">Historical data</span>
+        </a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="realtime-asset">
+        
+        <div class="slimScrollDiv">
+            to be implemented
+            
+        </div>
+        
+    </div>
+    <div class="tab-pane" id="historical-asset">
+        <div class="slimScrollDiv">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="page-header">Search for asset data</div>
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Enter asset name or market symbol (example : AAPL)">
+                        
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <i class="entypo-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="page-header">Or upload file</div>
+                    <form action="data/upload-file.php" class="dropzone" id="dropzone_example">
+                        <div class="fallback">
+                            <input name="file" type="file" multiple />
+                        </div>
+                    </form>
+                    
+                    <div id="dze_info" class="hidden">
+                        
+                        <br />
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="panel-title">Uploaded Files Info</div>
+                            </div>
+                            
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th width="40%">File name</th>
+                                        <th width="15%">Size</th>
+                                        <th width="15%">Type</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4"></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+    
+    
+</div>
+{% endblock content %}
+
+{% block js %}
+{{ block.super }}
+<script src="{{STATIC_URL}}js/fileinput.js"></script>
+<script src="{{STATIC_URL}}js/dropzone/dropzone.js"></script>
+{% endblock %}
